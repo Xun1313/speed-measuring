@@ -43,7 +43,7 @@ export default {
       },
     ],
     records: [
-      {
+      /* {
         CityName: "設置縣市",
         RegionName: "設置市區鄉鎮",
         Address: "設置地址",
@@ -53,7 +53,7 @@ export default {
         Latitude: "緯度",
         direct: "拍攝方向",
         limit: "速限",
-      },
+      }, */
       {
         CityName: "",
         RegionName: "",
@@ -13433,7 +13433,7 @@ export default {
         direct: "往臺北",
         limit: "50",
       },
-      {
+      /* {
         CityName: "新北市",
         RegionName: "汐止區",
         Address: "大同路1段與樟樹二路口",
@@ -21220,7 +21220,7 @@ export default {
         Latitude: "25.15298",
         direct: "往北",
         limit: "50",
-      },
+      }, */
     ],
   },
 };
