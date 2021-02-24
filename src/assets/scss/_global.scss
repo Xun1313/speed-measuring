@@ -1,0 +1,5 @@
+@for $i from 1 through 100 {
+  .font-size-#{$i + 10} {
+    @include font-size($i + 10);
+  }
+}

@@ -1,0 +1,101 @@
+.btn {
+  display: inline-block;
+  text-align: center;
+  padding: 7px 20px;
+  font-size: 16px;
+  border-radius: 2px;
+  font-weight: 300;
+  
+  &:focus {
+      outline: none;
+  }
+
+  &.no-radius {
+    border-radius: 0px;
+  }
+
+  &.btn-small {
+    padding: 3px 12px;
+    font-size: 13px;
+  }
+
+  &.btn-text-small {
+    font-size: 13px;
+  }
+
+  &.btn-lg {
+      padding: 11.5px 6px;
+  }
+}
+
+.btn-full {
+  padding: 7px 6px;
+  width: 100%;
+}
+
+.btn-half {
+  padding: 7px 6px;
+  width: 50%;
+}
+
+.btn-fix {
+  width: 280px;
+}
+
+.btn-link {
+  color: #ff0101;
+  text-decoration: underline;
+
+  &:hover {
+    color: #ff0101;
+  }
+}
+
+@each $key, $color in $color-collection {
+  .btn-#{$key} {
+    color: $color;
+    background: $white;
+    border: 1px solid $light-gray;
+
+    &:hover,
+    &:focus,
+    &:disabled {
+      color: $color;
+      background: $white;
+    }
+  }
+
+  .btn-bg-#{$key} {
+    color: $white;
+    background: $color;
+
+    &:hover,
+    &:focus,
+    &:disabled {
+      color: $white;
+      background: darken($color, 2%) !important;
+    }
+  }
+
+  .btn-border-#{$key} {
+    color: $color;
+    background: $white;
+    border: 1px solid $color;
+
+    &:hover,
+    &:focus,
+    &:disabled {
+      color: $color;
+      background: darken($white, 2%) !important;
+    }
+  }
+}
+
+.mobile {
+  .btn-lg {
+    padding: 8px 6px;
+  }
+  .btn-fix {
+    width: 100%;
+  }
+}

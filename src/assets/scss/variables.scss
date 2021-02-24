@@ -1,0 +1,81 @@
+
+// Body
+$body-bg: #f5f8fa;
+
+// Typography
+$font-family-sans-serif: "Raleway", sans-serif;
+$font-family-micro-jh: 'Microsoft JhengHei';
+$font-size-base: 0.9rem;
+$line-height-base: 1.6;
+$font-family-s-tw: 'Noto Sans TC', '微軟正黑體', 'Microsoft JhengHei', 'Helvetica Neue', 'Helvetica', sans-serif;
+
+// Color
+$nocolor: transparent;
+$black: #000000;
+$light-black: #777777;
+$white: #FFF;
+$gray: #aaaaaa;
+$light-gray: #eeeeee;
+$blue: #009ce1;
+$orange: #ff8209;
+$apple-green: #90c320;
+$red: #f44336;
+$black-red: #620c10;
+$gold: #FFDA82;
+$custom-gray: #969696;
+$light-yellow: #FFFFCC;
+$yellow: #fbb112;
+$bg-color-1: #f2f2f2;
+$red-orange: #eb5405;
+$peach-red:#E85A5A;
+$gray-c: #cccccc;
+$bg-color-2: #f9f9f9;
+$gray-d: #dddddd;
+$custom-blue: #616ef1;
+$custom-blue-1: #349aff;
+$custom-pink: #FF2A7A;
+$custom-green: #48d296;
+$light-red: #da6e6b;
+
+
+
+
+
+$color-collection: (
+	'white': $white,
+	'apple-green': $apple-green,
+	'orange': $orange,
+	'black': $black,
+	'blue': $blue,
+	'red-orange': $red-orange,
+	'light-red': $light-red,
+	'gray': $gray,
+	'light-gray': $light-gray,
+	'red': $red,
+	'black-red': $black-red,
+	'gold': $gold,
+	'custom-gray': $custom-gray,
+	'yellow': $yellow,
+	'light-yellow': $light-yellow,
+	'bg-color-1': $bg-color-1,
+	'light-black': $light-black,
+	'peach-red': $peach-red,
+	'custom-blue': $custom-blue,
+	'custom-blue-1': $custom-blue-1,
+	'custom-pink': $custom-pink,
+	'custom-green': $custom-green
+);
+
+$screen-lg: 1200px;
+$screen-md: 991px;
+$screen-sm: 768px;
+$screen-xs: 560px;
+$screen-xxs: 479px;
+$max-screen-mobile: 700px;
+$min-screen-mobile: 480px;
+
+$max-width: 1170px;
+$min-width: 1024px;
+
+$banner-max-width: 1400px;
+$banner-min-width: 1280px;

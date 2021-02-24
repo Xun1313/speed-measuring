@@ -31,7 +31,7 @@ const Mapbox = ({list}) => {
     mapboxgl.accessToken = 'pk.eyJ1IjoiYWRhbXpob25nIiwiYSI6ImNrbGc3NTNmejUxbmgycHBsZzBsYnZ5MWYifQ.Z7ylxFjrj0dVnHlvrha8oA';
     const mapObj = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/adamzhong/cklg7bgll5upk17s0ttmryydq',
+      style: 'mapbox://styles/adamzhong/cklirx7b402wu17s7g35r8jx2',
       center: [lng, lat],
       minZoom: 6,
       maxZoom: 18,
@@ -61,7 +61,6 @@ const Mapbox = ({list}) => {
     //產出marker和popup的icon
     //vm.showSearch = false;
     //const iconPath = require('../../assets/img/mark.png')
-    console.log(123);
     list.forEach((e, i) => {
       // create a DOM element for the marker
       var el = document.createElement('div');
@@ -109,10 +108,19 @@ const Mapbox = ({list}) => {
     })
   }
 
-  const onChangeTheme = (theme = 'street') => {
+  const onFilter = (lng, lat) => {
+    // 移動位置
+    map.flyTo({
+      center: [lng, lat],
+      zoom: 12
+    })
+  }
+
+  const onChangeTheme = (theme = 'light') => {
     // 變更地圖主題
     const themeList = {
-      street: 'mapbox://styles/adamzhong/cklg7bgll5upk17s0ttmryydq',
+      light: 'mapbox://styles/adamzhong/cklirx7b402wu17s7g35r8jx2',
+      dark: 'mapbox://styles/adamzhong/cklirmfxf07vo17rr8vm3folo',
       satellite: 'mapbox://styles/adamzhong/cklg7g8mp5xzv17noz591r3bw'
     }
     map.setStyle(themeList[theme])
@@ -120,8 +128,9 @@ const Mapbox = ({list}) => {
 
   return (
     <div className="container">
-      <button type="button" onClick={() => onChangeTheme('satellite')}>測試</button>
-      <button type="button" onClick={() => onChangeTheme('street')}>測試</button>
+      <button type="button" onClick={() => onChangeTheme('light')}>light</button>
+      <button type="button" onClick={() => onChangeTheme('dark')}>dark</button>
+      <button type="button" onClick={() => onChangeTheme('satellite')}>satellite</button>
       <div className="map">
         <div className="map-box" id="map"></div>
       </div>
