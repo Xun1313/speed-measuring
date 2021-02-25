@@ -7,7 +7,8 @@ const useSvgCommon = name => {
     customClass: PropType.string,
     customStyle: PropType.string,
     color: PropType.string,
-    direction: PropType.string
+    direction: PropType.string,
+    event: PropType.object
   }
 
   name.defaultProps = {

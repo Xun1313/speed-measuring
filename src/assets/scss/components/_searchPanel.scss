@@ -8,41 +8,52 @@
     width: 300px;
     height: 100vh;
     overflow: hidden;
-    transition: .3s width;
-    &.close {
+    transition: all .3s;
+    &.collapse1-close {
+      height: 10vh;
+    }
+    &.collapse2-close {
       width: 0;
     }
   
     .box-bg {
       background-color: white;
-      padding: 5px 15px;
-    }
-  
-    .search-group {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: white;
-      border: 0.5px solid rgba(0, 0, 0, 0.2);
-      border-radius: 10px;
-      padding: 5px 15px;
-      margin-bottom: 5px;
-      //box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.4);
-    }
-  
-    .record-item {
-      display: flex;
-      align-items: center;
-      padding: 5px 15px;
-      cursor: pointer;
-      
-      &:hover {
-        background-color: $hover-bg;
-      }
+      padding: 5px 8px;
     }
     
-    .record-item + .record-item {
-      border-top: 0.5px solid rgba(0, 0, 0, 0.1);
+    .search-style {
+      border-radius: 10px;
+      box-shadow: 0px 0px 5px 0px rgba(0,0,0, 0.2);
+
+      .search-group {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: white;
+        border: 0.5px solid rgba(0, 0, 0, 0.2);
+        border-radius: 10px 10px 0 0;
+        padding: 5px 15px;
+        margin-bottom: 5px;
+
+        &.collapse1-close {
+          border-radius: 10px;
+        }
+      }
+    
+      .record-item {
+        display: flex;
+        align-items: center;
+        padding: 5px 15px;
+        cursor: pointer;
+        
+        &:hover {
+          background-color: $hover-bg;
+        }
+      }
+      
+      .record-item + .record-item {
+        border-top: 0.5px solid rgba(0, 0, 0, 0.1);
+      }
     }
   }
 
@@ -60,6 +71,11 @@
     cursor: pointer;
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
     font-size: 13px;
+    &.collapse1-close {
+      bottom: 0;
+      width: auto;
+      border-radius: 0;
+    }
 
     &:hover {
       background-color: $hover-bg;
