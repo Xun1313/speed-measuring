@@ -1,9 +1,7 @@
 import { useState, useEffect } from "react";
 import mapboxgl from 'mapbox-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
-import './assets/index.scss'
-import iconPath from '../../assets/img/mark.png'
-//const iconPath = require('../../assets/img/mark.png')
+import iconPath from '../assets/img/mark.png'
 
 const Mapbox = ({list}) => {
   // 資料列表
@@ -127,13 +125,8 @@ const Mapbox = ({list}) => {
   }
 
   return (
-    <div className="container">
-      <button type="button" onClick={() => onChangeTheme('light')}>light</button>
-      <button type="button" onClick={() => onChangeTheme('dark')}>dark</button>
-      <button type="button" onClick={() => onChangeTheme('satellite')}>satellite</button>
-      <div className="map">
-        <div className="map-box" id="map"></div>
-      </div>
+    <div className="map">
+      <div className="map-box" id="map"></div>
     </div>
   );
 }
