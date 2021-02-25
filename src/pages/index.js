@@ -1,16 +1,12 @@
 import { useState, useEffect, useContext } from "react";
 
 import { city, area } from "../assets/js/city";
-import data from '../data'
 import Mapbox from '../components/Mapbox'
 import SearchPanel from '../components/SearchPanel'
 
-import { NavbarHamburgerContext } from '../contexts/NavbarHamburgerContext'
-import { DarkBgContext } from '../contexts/DarkBgContext'
+import { GeneralContext } from '../contexts/GeneralContext'
 
 function App() {
-  // 資料列表
-  const [list, setList] = useState([])
   // 使用者選擇的縣市
   const [county, setCounty] = useState('高雄市')
   // 使用者選擇的鄉鎮市
@@ -18,13 +14,10 @@ function App() {
   // 縣市對應鄉鎮市列表
   const [districtList, setDistrictList] = useState([])
 
-  const { setShowHamburgerBar } = useContext(NavbarHamburgerContext)
-  const { showDarkBg, setShowDarkBg }  = useContext(DarkBgContext)
-  //console.log(showDarkBg);
+  const { showDarkBg, onToggleHamburger } = useContext(GeneralContext)
 
   useEffect(() => {
     //https://od.moi.gov.tw/api/v1/rest/datastore/A01010000C-000674-011
-    setList(data.result.records)
 
     onChangeCity(county)
   }, []);
@@ -42,11 +35,6 @@ function App() {
   const onSearch = () => {
     // 搜尋
     //const result = list.filter(e => )
-  }
-
-  const onToggleHamburger = () => {
-    setShowHamburgerBar(false)
-    setShowDarkBg(false)
   }
 
   return (
@@ -74,10 +62,10 @@ function App() {
       </div> */}
       <div className="map-container">
         <SearchPanel></SearchPanel>
-        <Mapbox list={list}></Mapbox>
+        <Mapbox></Mapbox>
       </div>
 
-      <div className={`${showDarkBg ? 'dark-bg' : ''}`} onClick={onToggleHamburger}></div>
+      <div className={`${showDarkBg ? 'dark-bg' : ''}`} onClick={() => onToggleHamburger(false)}></div>
     </>
   );
 }

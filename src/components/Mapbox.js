@@ -1,21 +1,27 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import mapboxgl from 'mapbox-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import iconPath from '../assets/img/mark.png'
 
-const Mapbox = ({list}) => {
+import data from '../data'
+
+import { MapboxContext } from '../contexts/MapboxContext'
+
+const Mapbox = () => {
   // 資料列表
-  const [dataList, setDataList] = useState(list)
+  const [list, setList] = useState([])
   // loading 開關
   const [loading, setLoading] = useState(true)
   // 儲存畫面上當下所有marker object
   const [markerList, setMarkerList] = useState([])
   // 儲存畫面上當下所有popup object
   const [popupList, setPopupList] = useState([])
-  // map object
-  const [map, setMap] = useState('')
+
+  const { map, setMap } = useContext(MapboxContext)
 
   useEffect(() => {
+    setList(data.result.records)
+
     navigator.geolocation.getCurrentPosition(position => {
       // 使用者同意
       onInitMap(position.coords.longitude, position.coords.latitude);
@@ -37,7 +43,7 @@ const Mapbox = ({list}) => {
     });
     setMap(mapObj)
 
-    onGenerateIcons();
+    onGenerateIcons(mapObj);
 
     //顯示右上角的+- zoomin zoomout功能
     mapObj.addControl(new mapboxgl.NavigationControl());
@@ -55,18 +61,14 @@ const Mapbox = ({list}) => {
     setLoading(false);
   }
 
-  const onGenerateIcons = () => {
-    //產出marker和popup的icon
-    //vm.showSearch = false;
-    //const iconPath = require('../../assets/img/mark.png')
-    list.forEach((e, i) => {
+  const onGenerateIcons = mapObj => {
+    // todo: useState 無法在同個 function 立刻更新拿到值
+    //產出 marker 和 popup 的 icon
+    data.result.records.forEach(function(test) {
       // create a DOM element for the marker
       var el = document.createElement('div');
       el.className = 'marker';
       el.style.backgroundImage = `url(${iconPath})`;
-      if (i == 1) {
-        console.log(el);
-      }
 
       var markerHeight = 70;
       const popup = new mapboxgl.Popup({ offset: {
@@ -81,15 +83,12 @@ const Mapbox = ({list}) => {
         '" target="_blank" rel="noopener noreferrer">' + popType + '&nbsp;<i class="fas fa-caret-right"></i></a></div><div class="distance"><i class="fas fa-map-marker-alt"></i> '+
         e.distance + '</div><div class="ongmap"><a href="https://www.google.com/maps/search/?api=1&query=' +
         e.Latitude + ',' + e.Longitude + '" target="_blank" rel="noopener noreferrer">如何前往 ?</a></div></div>'); */
-      //setPopupList([...popupList, popup])
       setPopupList(prev => [...prev, popup])
-      //console.log(popupList);
 
       const marker = new mapboxgl.Marker({element: el, anchor: 'bottom'})
-        .setLngLat([e.Longitude, e.Latitude])
+        .setLngLat([test.Longitude, test.Latitude])
         .setPopup(popup) // add popups
-        .addTo(map);
-      //setMarkerList([...markerList, marker])
+        .addTo(mapObj);
       setMarkerList(prev => [...prev, marker])
     });
   }
@@ -112,16 +111,6 @@ const Mapbox = ({list}) => {
       center: [lng, lat],
       zoom: 12
     })
-  }
-
-  const onChangeTheme = (theme = 'light') => {
-    // 變更地圖主題
-    const themeList = {
-      light: 'mapbox://styles/adamzhong/cklirx7b402wu17s7g35r8jx2',
-      dark: 'mapbox://styles/adamzhong/cklirmfxf07vo17rr8vm3folo',
-      satellite: 'mapbox://styles/adamzhong/cklg7g8mp5xzv17noz591r3bw'
-    }
-    map.setStyle(themeList[theme])
   }
 
   return (

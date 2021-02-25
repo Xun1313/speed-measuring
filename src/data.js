@@ -6701,7 +6701,7 @@ export default {
         direct: "北向南",
         limit: "50",
       },
-      {
+      /*{
         CityName: "基隆市",
         RegionName: "七堵區",
         Address: "明德二路(台五線20K+422)南向",
@@ -13433,7 +13433,7 @@ export default {
         direct: "往臺北",
         limit: "50",
       },
-      /* {
+      {
         CityName: "新北市",
         RegionName: "汐止區",
         Address: "大同路1段與樟樹二路口",

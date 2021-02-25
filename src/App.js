@@ -4,24 +4,25 @@ import index from './pages/index'
 import './assets/scss/app.scss'
 import NavbarHamburger from './components/NavbarHamburger'
 
-import NavbarHamburgerProvider from './contexts/NavbarHamburgerContext'
-import DarkBgContextProvider from './contexts/DarkBgContext'
+import GeneralProvider from './contexts/GeneralContext'
+import MapboxProvider from './contexts/MapboxContext'
 
 function App() {
   return (
     <Router>
-      <NavbarHamburgerProvider>
-        <DarkBgContextProvider>
-          <div className="App">
-            <Switch>
-              <Route exact path="/" component={index} />
-            </Switch>
+      <GeneralProvider>
+        <MapboxProvider>
 
-            <NavbarHamburger></NavbarHamburger>
+        <div className="App">
+          <Switch>
+            <Route exact path="/" component={index} />
+          </Switch>
 
-          </div>
-        </DarkBgContextProvider>
-      </NavbarHamburgerProvider>
+          <NavbarHamburger></NavbarHamburger>
+
+        </div>
+        </MapboxProvider>
+      </GeneralProvider>
     </Router>
   );
 }

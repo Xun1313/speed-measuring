@@ -4,20 +4,14 @@ import Clock from './svg/Clock'
 import Arrow from './svg/Arrow'
 import HamburgerMenu from './svg/HamburgerMenu'
 
-import { NavbarHamburgerContext } from '../contexts/NavbarHamburgerContext'
-import { DarkBgContext } from '../contexts/DarkBgContext'
+import { GeneralContext } from '../contexts/GeneralContext'
+
 
 const SearchPanel = () => {
   const [collapse1, setCollapse1] = useState(false)
   const [collapse2, setCollapse2] = useState(false)
 
-  const { setShowHamburgerBar } = useContext(NavbarHamburgerContext)
-  const { setShowDarkBg }  = useContext(DarkBgContext)
-
-  const onToggleHamburger = () => {
-    setShowHamburgerBar(true)
-    setShowDarkBg(true)
-  }
+  const { setShowHamburgerBar, setShowDarkBg, onToggleHamburger } = useContext(GeneralContext)
 
   return (
     <div className="search-container">
@@ -25,7 +19,7 @@ const SearchPanel = () => {
         <div className="box-bg">
           <div className="search-style">
             <div className={`search-group ${collapse1 ? 'collapse1-close' : ''}`}>
-              <HamburgerMenu width="15" height="15" color="gray" event={{onClick: onToggleHamburger}}></HamburgerMenu>
+              <HamburgerMenu width="15" height="15" color="gray" event={{onClick: () => onToggleHamburger(true)}}></HamburgerMenu>
               <input type="text" className="font-size-14 margin-left-10 margin-right-10" placeholder="搜尋測速相機地址" style={{width: '85%'}}/>
               <Magnifier width="15" height="15" color="gray"></Magnifier>
             </div>
