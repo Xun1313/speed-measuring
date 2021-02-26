@@ -18,15 +18,15 @@ const NavbarHamburger = () => {
         <div className="group">
           <div className={`item ${theme === 'street' ? 'is-select' : ''}`} onClick={() => onChangeTheme('street')}>
             <Street width="20" height="20"></Street>
-            <span className="margin-left-15 color-gray">街道</span>
+            <span className="margin-left-15">街道</span>
           </div>
           <div className={`item ${theme === 'satellite' ? 'is-select' : ''}`} onClick={() => onChangeTheme('satellite')}>
             <Satellite width="20" height="20"></Satellite>
-            <span className="margin-left-15 color-gray">衛星</span>
+            <span className="margin-left-15">衛星</span>
           </div>
           <div className={`item ${theme === 'dark' ? 'is-select' : ''}`} onClick={() => onChangeTheme('dark')}>
             <Dark width="20" height="20"></Dark>
-            <span className="margin-left-15 color-gray">夜間模式</span>
+            <span className="margin-left-15">夜間模式</span>
           </div>
         </div>
 

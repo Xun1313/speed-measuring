@@ -1,0 +1,16 @@
+.collapse {
+  position: relative;
+  .collapse-title {
+    display: flex;
+    align-items: center;
+  }
+  
+  .collapse-content {
+    //position: absolute;
+    top: 0;
+    transition: .3s all;
+    &.open {
+      top: 40px;
+    }
+  }
+}

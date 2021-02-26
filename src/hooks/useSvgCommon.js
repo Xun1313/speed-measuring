@@ -15,7 +15,7 @@ const useSvgCommon = name => {
     width: 30,
     height: 30,
     color: 'currentColor',
-    direction: 'down'
+    direction: 'bottom'
   }
 }
 
@@ -30,8 +30,8 @@ const style = props => {
 }
 
 const rotate = {
-  up: 180,
-  down: 0,
+  top: 180,
+  bottom: 0,
   left: 90,
   right: 270
 }

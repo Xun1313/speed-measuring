@@ -7,10 +7,13 @@
     background-color: #f5f5f5;
     width: 300px;
     height: 100vh;
-    overflow: hidden;
+    padding-bottom: 30px;
+    overflow-x: hidden;
+    overflow-y: auto;
     transition: all .3s;
     &.collapse1-close {
       height: 10vh;
+      overflow: hidden;
     }
     &.collapse2-close {
       width: 0;
@@ -48,6 +51,11 @@
         
         &:hover {
           background-color: $hover-bg;
+
+          > .cross {
+            width: 8px !important;
+            height: 8px !important;
+          }
         }
       }
       
@@ -58,23 +66,20 @@
   }
 
   .collapse1 {
-    position: absolute;
-    bottom: 30px;
+    width: 300px;
+    position: fixed;
+    bottom: 0;
     left: 0;
-    right: 0;
     background-color: white;
-    width: 100px;
-    border-radius: 10px;
     text-align: center;
     padding: 5px;
-    margin: auto;
     cursor: pointer;
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
     font-size: 13px;
     &.collapse1-close {
-      bottom: 0;
-      width: auto;
-      border-radius: 0;
+      position: absolute;
+      //bottom: 0;
+      //width: auto;
     }
 
     &:hover {

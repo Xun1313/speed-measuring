@@ -1,0 +1,45 @@
+.filter {
+  padding: 5px 15px 15px;
+
+  .title {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0 10px;
+
+
+    .select-btn {
+      font-size: 12px;
+      background-color: $hover-bg;
+      border-radius: 10px;
+      padding: 3px 7px;
+      cursor: pointer;
+      margin: 5px 0 0 5px;
+
+      &:hover {
+        background-color: darken($hover-bg, 5%);
+      }
+    }
+  }
+
+  .city-btn, .area-btn {
+    border-radius: 5px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    cursor: pointer;
+    &.is-select {
+      background-color: darken($hover-bg, 5%);
+    }
+
+    &:hover {
+      background-color: $hover-bg;
+    }
+  }
+
+  .filter-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 15px -23px 0;
+  }
+}

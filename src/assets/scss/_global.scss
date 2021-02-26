@@ -9,6 +9,37 @@
   transition: .2s all;
 }
 
+.text-center {
+  text-align: center;
+}
+
+@each $key,
+$color in $color-collection {
+  .color-#{$key} {
+    color: $color !important;
+  }
+
+  .bg-color-#{$key} {
+    background: $color !important;
+  }
+  
+  .border-#{$key} {
+    border: 1px solid $color;
+  }
+
+  .border-2-#{$key} {
+    border: 2px solid $color;
+  }
+
+  .border-bottom-#{$key} {
+    border-bottom: 1px solid $color;
+  }
+
+  .hover-border-bottom-#{$key}:hover {
+    border-bottom: 1px solid $color;
+  }
+}
+
 @for $i from 1 through 100 {
   .font-size-#{$i + 10} {
     @include font-size($i + 10);
