@@ -1,7 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import mapboxgl from 'mapbox-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
-import iconPath from '../assets/img/mark.png'
 
 import data from '../data'
 
@@ -64,29 +63,32 @@ const Mapbox = () => {
   const onGenerateIcons = mapObj => {
     // todo: useState 無法在同個 function 立刻更新拿到值
     //產出 marker 和 popup 的 icon
-    data.result.records.forEach(function(test) {
+    data.result.records.forEach(e => {
       // create a DOM element for the marker
-      var el = document.createElement('div');
-      el.className = 'marker';
-      el.style.backgroundImage = `url(${iconPath})`;
+      const el = document.createElement('div');
+      el.className = e.limit <= 50 ? 'marker alert' : 'marker';
+      el.textContent = e.limit
 
-      var markerHeight = 70;
+      var markerHeight = 40;
       const popup = new mapboxgl.Popup({ offset: {
           'top': [0, 0],
           'bottom': [0, -markerHeight],
       }, closeButton: false });
-      var popType = true? '店車資訊 ':'店家資訊 ';
-      // add marker to map //vm.baseUrl + vm.mapType
-      /* popup.setHTML('<div class="popup-box"><div class="popup-img" style="background-image:url(' + e.img + ')"><span class="status">'+
-        e.openStatus + '</span></div><div class="popup-content"><div class="name">' + e.name + '</div><div class="cat">'+
-        e.categories + '</div><div class="more"><a href="' + '/detail/' + e.id +
-        '" target="_blank" rel="noopener noreferrer">' + popType + '&nbsp;<i class="fas fa-caret-right"></i></a></div><div class="distance"><i class="fas fa-map-marker-alt"></i> '+
-        e.distance + '</div><div class="ongmap"><a href="https://www.google.com/maps/search/?api=1&query=' +
-        e.Latitude + ',' + e.Longitude + '" target="_blank" rel="noopener noreferrer">如何前往 ?</a></div></div>'); */
+
+      // add marker to map
+      popup.setHTML(`
+      <div class="popup-content">
+        <div class="name">設置縣市: ${e.CityName}</div>
+        <div class="cat">設置市區鄉鎮: ${e.RegionName}</div>
+        <div class="cat">設置地址: ${e.Address}</div>
+        <div class="cat">管轄警局: ${e.DeptNm}</div>
+        <div class="cat">管轄分局: ${e.BranchNm}</div>
+        <div class="cat">拍攝方向: ${e.direct}</div>
+      </div>`);
       setPopupList(prev => [...prev, popup])
 
       const marker = new mapboxgl.Marker({element: el, anchor: 'bottom'})
-        .setLngLat([test.Longitude, test.Latitude])
+        .setLngLat([e.Longitude, e.Latitude])
         .setPopup(popup) // add popups
         .addTo(mapObj);
       setMarkerList(prev => [...prev, marker])
