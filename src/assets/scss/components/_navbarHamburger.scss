@@ -3,12 +3,13 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 0;
+  width: 15%;
   height: 100%;
   z-index: 990000;
-  transition: .3s width;
+  transform: translateX(-100%);
+  transition: .3s transform;
   &.open {
-    width: 15%;
+    transform: translateX(0);
   }
   
   .list {
@@ -27,7 +28,6 @@
         padding: 5px 15px;
         font-weight: 500;
         font-size: 14px;
-        white-space: nowrap;
         cursor: pointer;
         &.is-select {
           color: $hover-text;

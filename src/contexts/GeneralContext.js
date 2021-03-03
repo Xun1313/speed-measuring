@@ -5,6 +5,7 @@ export const GeneralContext = createContext()
 const GeneralProvider = props => {
   const [showDarkBg, setShowDarkBg] = useState(false)
   const [showHamburgerBar, setShowHamburgerBar] = useState(false)
+  const [feature, setFeature] = useState('filterAddress')
 
   const onToggleHamburger = bool => {
     setShowHamburgerBar(bool)
@@ -16,6 +17,8 @@ const GeneralProvider = props => {
     setShowDarkBg,
     showHamburgerBar,
     setShowHamburgerBar,
+    feature,
+    setFeature,
     onToggleHamburger
   }
 

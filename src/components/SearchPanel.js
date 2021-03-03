@@ -9,12 +9,13 @@ import Cross from './svg/Cross'
 import { GeneralContext } from '../contexts/GeneralContext'
 
 import FilterAddress from './FilterAddress'
+import FilterAddressResult from './FilterAddressResult'
 
 const SearchPanel = () => {
   const [collapse1, setCollapse1] = useState(false)
   const [collapse2, setCollapse2] = useState(false)
 
-  const { onToggleHamburger } = useContext(GeneralContext)
+  const { onToggleHamburger, feature } = useContext(GeneralContext)
 
   const onRemoveRecord = e => {
     // 刪除瀏覽紀錄
@@ -22,32 +23,54 @@ const SearchPanel = () => {
     console.log('onRemoveRecord');
   }
 
-  const onSearch = () => {
-    // 搜尋
-    //const result = list.filter(e => )
-    console.log('onSearch');
+  const onSearch = value => {
+    // 搜尋過去的搜尋紀錄
+    if (!value) return
+    
+    
   }
 
   return (
-    <div className="search-container">
-      <div className={`search-panel ${collapse1 ? 'collapse1-close' : ''} ${collapse2 ? 'collapse2-close' : ''}`}>
+    <div className={`search-container ${collapse2 ? 'collapse2-close' : ''}`}>
+      <div className={`search-panel ${collapse1 ? 'collapse1-close' : ''}`}>
         <div className="box-bg">
           <div className="search-style">
             <div className={`search-group ${collapse1 ? 'collapse1-close' : ''}`}>
               <HamburgerMenu width="15" height="15" color="gray" event={{onClick: () => onToggleHamburger(true)}}></HamburgerMenu>
-              <input type="text" className="font-size-14 margin-left-10 margin-right-10" placeholder="搜尋測速相機地址" style={{width: '85%'}}/>
+              <input type="text" className="font-size-14 margin-left-10 margin-right-10" placeholder="搜尋測速相機地址" onKeyUp={e => e.keyCode === 13 ? onSearch(e.target.value) : ''} style={{width: '85%'}}/>
               <Magnifier width="15" height="15" color="gray"></Magnifier>
             </div>
 
-            {!collapse1 && <div className="record-item" onClick={() => onSearch()}>
-              <Clock width="15" height="15" color="gray"></Clock>
-              <div className="margin-left-15 font-size-13" style={{marginRight: 'auto'}}>123</div>
-              <Cross width="0" height="0" color="gray" customClass="cross" event={{ onClick: e => onRemoveRecord(e)}}></Cross>
-            </div>}
+            {
+              !collapse1
+              && feature === 'filterAddress'
+              && <div className="record-item" onClick={() => onSearch(123)}>
+                  <Clock width="15" height="15" color="gray"></Clock>
+                  <div className="margin-left-15 font-size-13" style={{marginRight: 'auto'}}>123</div>
+                  <Cross width="0" height="0" color="gray" customClass="cross" event={{ onClick: e => onRemoveRecord(e)}}></Cross>
+                </div>
+            }
+
+            {
+              !collapse1
+              && feature === 'filterAddressResult'
+              && <div className="filterAddressResult-item">8787</div>
+            }
           </div>
         </div>
 
-        <FilterAddress show={collapse1}></FilterAddress>
+        {
+          // 條件篩選
+          !collapse1
+          && feature === 'filterAddress'
+          && <FilterAddress></FilterAddress>
+        }
+        {
+          // 條件篩選結果
+          !collapse1
+          && feature === 'filterAddressResult'
+          && <FilterAddressResult></FilterAddressResult>
+        }
 
         <div className={`collapse1 ${collapse1 ? 'collapse1-close' : ''}`} onClick={() => setCollapse1(prev => !prev)}>
           <Arrow width="10" height="10" color="blue" direction="top"></Arrow>

@@ -1,0 +1,26 @@
+.filter-address-result {
+
+  .item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .icon {
+      color: $blue;
+      cursor: pointer;
+      .svg {
+        border-radius: 50%;
+        border: .3px solid rgba(0, 0, 0, .1);
+        padding: 8px;
+
+        &:hover {
+          background-color: $hover-bg;
+        }
+      }
+    }
+  }
+  .item + .item {
+    border-top: 0.5px solid rgba(0, 0, 0, .1);
+
+  }
+}

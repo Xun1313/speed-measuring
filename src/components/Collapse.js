@@ -1,11 +1,11 @@
 import { useState } from "react";
 import Arrow from './svg/Arrow'
 
-const Collapse = ({ Icon, title, show, children }) => {
+const Collapse = ({ Icon, title, children }) => {
   const [showCollapse, setShowCollapse] = useState(true)
 
   return (
-    <div className="box-bg collapse" style={{display: show ? 'none' : ''}}>
+    <div className="box-bg collapse">
       <div className="collapse-title" onClick={() => setShowCollapse(prev => !prev)}>
         <Icon width="15" height="15" color="gray"></Icon>
         <span className="margin-left-10" style={{ marginRight: 'auto' }}>{title}</span>
