@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/Xun1313/speed-measuring/static/css/main.88f165ae.chunk.css",
+    "main.js": "/Xun1313/speed-measuring/static/js/main.3a6f6137.chunk.js",
+    "main.js.map": "/Xun1313/speed-measuring/static/js/main.3a6f6137.chunk.js.map",
+    "runtime-main.js": "/Xun1313/speed-measuring/static/js/runtime-main.6346800d.js",
+    "runtime-main.js.map": "/Xun1313/speed-measuring/static/js/runtime-main.6346800d.js.map",
+    "static/css/2.bdb85385.chunk.css": "/Xun1313/speed-measuring/static/css/2.bdb85385.chunk.css",
+    "static/js/2.0b33c22a.chunk.js": "/Xun1313/speed-measuring/static/js/2.0b33c22a.chunk.js",
+    "static/js/2.0b33c22a.chunk.js.map": "/Xun1313/speed-measuring/static/js/2.0b33c22a.chunk.js.map",
+    "index.html": "/Xun1313/speed-measuring/index.html",
+    "static/css/2.bdb85385.chunk.css.map": "/Xun1313/speed-measuring/static/css/2.bdb85385.chunk.css.map",
+    "static/css/main.88f165ae.chunk.css.map": "/Xun1313/speed-measuring/static/css/main.88f165ae.chunk.css.map",
+    "static/js/2.0b33c22a.chunk.js.LICENSE.txt": "/Xun1313/speed-measuring/static/js/2.0b33c22a.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6346800d.js",
+    "static/css/2.bdb85385.chunk.css",
+    "static/js/2.0b33c22a.chunk.js",
+    "static/css/main.88f165ae.chunk.css",
+    "static/js/main.3a6f6137.chunk.js"
+  ]
+}
