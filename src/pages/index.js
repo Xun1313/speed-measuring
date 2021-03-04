@@ -32,34 +32,8 @@ function App() {
     setDistrictList(result)
   }
 
-  const onSearch = () => {
-    // 搜尋
-    //const result = list.filter(e => )
-  }
-
   return (
     <>
-      {/* <div className="banner">
-        <div className="box">
-          <h1 className="font-size-28">全台測速照相</h1>
-          <h2 className="font-size-22">地圖搜尋</h2>
-
-          <div className="mb-2">
-            <select onChange={e => onChangeCity(e.target.value)}>
-              {city.map(e => <option key={e} value={e}>{e}</option>)}
-            </select>
-          </div>
-
-          <div className="mb-2">
-            <select onChange={e => setDistrict(e.target.value)}>
-              <option value="">鄉鎮市區</option>
-              {districtList.map(e => <option key={e} value={e}>{e}</option>)}
-            </select>
-          </div>
-
-          <button type="button" className="btn btn-bg-blue btn-small" onClick={onSearch}>搜尋</button>
-        </div>
-      </div> */}
       <div className="map-container">
         <SearchPanel></SearchPanel>
         <Mapbox></Mapbox>

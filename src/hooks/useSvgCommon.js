@@ -7,6 +7,7 @@ const useSvgCommon = name => {
     customClass: PropType.string,
     customStyle: PropType.string,
     color: PropType.string,
+    pointer: PropType.bool,
     direction: PropType.string,
     event: PropType.object
   }
@@ -15,6 +16,7 @@ const useSvgCommon = name => {
     width: 30,
     height: 30,
     color: 'currentColor',
+    pointer: false,
     direction: 'bottom'
   }
 }
@@ -24,6 +26,7 @@ const style = props => {
     width: props.width,
     height: props.height,
     fill: props.color,
+    cursor: props.pointer ? 'pointer' : 'default',
     transform: `rotate(${rotate[props.direction]}deg)`,
     ...props.customStyle,
   }

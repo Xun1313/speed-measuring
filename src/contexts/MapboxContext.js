@@ -18,23 +18,27 @@ const MapboxProvider = props => {
   // 儲存畫面上當下所有popup object
   const [popupList, setPopupList] = useState([])
 
-  const { setFeature } = useContext(GeneralContext)
+  const { setFeature, setSearchStatus } = useContext(GeneralContext)
 
   const onGetApi = () => {
     // 取得 api 資料
     setList(data.result.records)
   }
 
-  const onFilterAddress = (city = [], area = []) => {
+  const onFilterAddress = (city = [], area = [], highway = true) => {
     // 篩選地址
+    setSearchStatus('loading')
     onResetMarkerPopup()
 
-    const result = list.filter(e => e.CityName === city[0] && area.includes(e.RegionName))
+    // 是否要搜尋國道
+    //const searchHighway = highway ? `e.CityName.includes('國道')` : true
+    const result = list.filter(e => e.CityName === city[0] && area.includes(e.RegionName)/*  && searchHighway */)
     setUserList(result)
 
     onGenerateIcons(map, result)
     
     setFeature('filterAddressResult')
+    setSearchStatus('cross')
     //result.length > 0 ? setFeature('filterAddressResult') : setFeature(null)
   }
 

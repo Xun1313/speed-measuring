@@ -16,6 +16,8 @@ const FilterAddress = () => {
   const [selectArea, setSelectArea] = useState([])
   // 縣市對應鄉鎮市列表
   const [selectAreaList, setSelectAreaList] = useState([])
+  // 是否避開國道
+  const [selectHighway, setSelectHighway] = useState(true)
 
   const { onFilterAddress } = useContext(MapboxContext)
 
@@ -92,9 +94,18 @@ const FilterAddress = () => {
           }
         </div>
 
+        {/* <div className="row">
+          <div className="col-12 margin-bottom-10">
+            <label className="title margin-top-5" style={{cursor: 'pointer'}} htmlFor="highway">
+              <input type="checkbox" id="highway" defaultChecked={selectHighway} onChange={e => setSelectHighway(e.target.checked)}/>
+              <b className="margin-left-5">避開國道</b>
+            </label>
+          </div>
+        </div> */}
+
         <div className="filter-btn">
           <button type="button" className="btn btn-bg-light-gray btn-full no-radius color-black" onClick={onRest}>重製</button>
-          <button type="button" className="btn btn-bg-blue btn-full no-radius" onClick={() => onFilterAddress(selectCity, selectArea)}>確認</button>
+          <button type="button" className="btn btn-bg-blue btn-full no-radius" onClick={() => onFilterAddress(selectCity, selectArea, selectHighway)}>確認</button>
         </div>
       </div>
     </Collapse>

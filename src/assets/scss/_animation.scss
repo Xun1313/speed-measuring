@@ -1,0 +1,387 @@
+// Vue animate
+.fade-enter-active {
+    animation: fadeIn .3s ease-in;
+}
+
+.fade-leave-active {
+    animation: fadeOut .3s ease-out;
+}
+
+.fadeSlow-enter-active {
+    animation: fadeIn 1s ease-in;
+}
+
+.fadeSlow-leave-active {
+    animation: fadeOut 1s ease-out;
+}
+
+.slideDownUp-enter-active {
+    animation: slideInDown .3s ease;
+}
+
+.slideDownUp-leave-active {
+    animation: slideOutUp .3s ease;
+}
+
+.slideUpDown-enter-active {
+    animation: slideInUp .3s ease-in;
+}
+
+.slideUpDown-leave-active {
+    animation: slideOutDown .3s ease-out;
+}
+
+.slideInOutLeft-enter-active {
+    animation: slideInLeft .3s ease;
+}
+
+.slideInOutLeft-leave-active {
+    animation: slideOutLeft .3s ease;
+}
+
+.slideInOutRight-enter-active {
+    animation: slideInRight .3s ease;
+}
+
+.slideInOutRight-leave-active {
+    animation: slideOutRight .3s ease;
+}
+
+.animated {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fadeIn {
+    @extend .animated;
+    animation-name: fadeIn;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translate3d(0, -100%, 0);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.fadeInDown {
+    animation-name: fadeInDown;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.fadeOut {
+    @extend .animated;
+    animation-name: fadeOut;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+.fadeInUp {
+    @extend .animated;
+    animation-name: fadeInUp;
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translate3d(-100%, 0, 0);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.fadeInLeft {
+    animation-name: fadeInLeft;
+}
+
+@keyframes fadeOutRight {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        transform: translate3d(100%, 0, 0);
+    }
+}
+
+.fadeOutRight {
+    animation-name: fadeOutRight;
+}
+
+@keyframes slideInUp {
+    from {
+        transform: translate3d(0, 100%, 0);
+        visibility: visible;
+    }
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.slideInUp {
+    animation-name: slideInUp;
+}
+
+@keyframes slideInDown {
+    from {
+        transform: translate3d(0, -100%, 0);
+        visibility: visible;
+    }
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.slideInDown {
+    animation-name: slideInDown;
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translate3d(-100%, 0, 0);
+        visibility: visible;
+    }
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.slideInLeft {
+    animation-name: slideInLeft;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translate3d(100%, 0, 0);
+        visibility: visible;
+    }
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.slideInRight {
+    animation-name: slideInRight;
+}
+
+@keyframes slideOutUp {
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+    to {
+        visibility: hidden;
+        transform: translate3d(0, -100%, 0);
+    }
+}
+
+.slideOutUp {
+    animation-name: slideOutUp;
+}
+
+@keyframes slideOutDown {
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+    to {
+        visibility: hidden;
+        transform: translate3d(0, 100%, 0);
+    }
+}
+
+.slideOutDown {
+    animation-name: slideOutDown;
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale3d(.3, .3, .3);
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideOutLeft {
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+    to {
+        visibility: hidden;
+        transform: translate3d(-100%, 0, 0);
+    }
+}
+
+.slideOutLeft {
+    animation-name: slideOutLeft;
+}
+
+@keyframes slideOutRight {
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+    to {
+        visibility: hidden;
+        transform: translate3d(100%, 0, 0);
+    }
+}
+
+.slideOutRight {
+    animation-name: slideOutRight;
+}
+
+.zoomIn {
+    @extend .animated;
+    animation-name: zoomIn;
+}
+
+@keyframes zoomOut {
+    from {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+        transform: scale3d(.3, .3, .3);
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.zoomOut {
+    @extend .animated;
+    animation-name: zoomOut;
+}
+
+@keyframes rotateIn {
+    from {
+        transform-origin: center;
+        transform: rotate3d(0, 0, 1, -200deg);
+        opacity: 0;
+    }
+    to {
+        transform-origin: center;
+        transform: none;
+        opacity: 1;
+    }
+}
+
+.rotateIn {
+    @extend .animated;
+    animation-name: rotateIn;
+}
+
+@keyframes rotateOut {
+    from {
+        transform-origin: center;
+        opacity: 1;
+    }
+    to {
+        transform-origin: center;
+        transform: rotate3d(0, 0, 1, 200deg);
+        opacity: 0;
+    }
+}
+
+.rotateOut {
+    @extend .animated;
+    animation-name: rotateOut;
+}
+
+@keyframes slideInDown {
+    from {
+        transform: translate3d(0, -100%, 0);
+        visibility: visible;
+    }
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.slideInDown {
+    @extend .animated;
+    animation-name: slideInDown;
+}
+
+@keyframes flyRightOut {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+}
+
+.flyRightOut {
+    @extend .animated;
+    animation-name: flyRightOut;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0)
+    }
+    to {
+        transform: rotate(359deg)
+    }
+}
+
+@-webkit-keyframes bouncedelay {
+    0%,
+    80%,
+    100% {
+        -webkit-transform: scale(0)
+    }
+    40% {
+        -webkit-transform: scale(1.0)
+    }
+}
+
+@keyframes bouncedelay {
+    0%,
+    80%,
+    100% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+    40% {
+        -webkit-transform: scale(1.0);
+        transform: scale(1.0);
+    }
+}

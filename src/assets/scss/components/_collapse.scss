@@ -1,16 +1,16 @@
 .collapse {
-  position: relative;
   .collapse-title {
     display: flex;
     align-items: center;
+    cursor: pointer;
   }
   
   .collapse-content {
-    //position: absolute;
-    top: 0;
-    transition: .3s all;
+    transition: .7s max-height;
+    max-height: 0;
+    overflow: hidden;
     &.open {
-      top: 40px;
+      max-height: 3000px;
     }
   }
 }

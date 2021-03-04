@@ -1,3 +1,19 @@
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading {
+  animation-name: rotate;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
 .dark-bg {
   position: fixed;
   z-index: 1000;
