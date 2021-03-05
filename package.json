@@ -2,7 +2,7 @@
   "name": "speed-measuring",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/Xun1313/speed-measuring",
+  "homepage": "https://Xun1313.github.io/speed-measuring",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
