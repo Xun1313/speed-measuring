@@ -10,7 +10,7 @@ import RecordProvider from './contexts/RecordContext'
 
 function App() {
   return (
-    <Router>
+    <Router basename={'/speed-measuring/'}>
       <GeneralProvider>
         <MapboxProvider>
           <RecordProvider>

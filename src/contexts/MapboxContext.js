@@ -1,7 +1,9 @@
 import { useState, useContext, createContext } from "react";
 import { GeneralContext } from '../contexts/GeneralContext'
-import mapboxgl from 'mapbox-gl'
 import data from '../data'
+import mapboxgl from 'mapbox-gl'
+// eslint-disable-next-line import/no-webpack-loader-syntax
+mapboxgl.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker').default;
 
 export const MapboxContext = createContext()
 
