@@ -7,6 +7,7 @@ const GeneralProvider = props => {
   const [showHamburgerBar, setShowHamburgerBar] = useState(false)
   const [feature, setFeature] = useState('filterAddress')
   const [searchStatus, setSearchStatus] = useState('camera')
+  const [isMobile, setUserAgent] = useState(false)
 
   const onToggleHamburger = bool => {
     setShowHamburgerBar(bool)
@@ -22,6 +23,8 @@ const GeneralProvider = props => {
     setFeature,
     searchStatus,
     setSearchStatus,
+    isMobile,
+    setUserAgent,
     onToggleHamburger
   }
 

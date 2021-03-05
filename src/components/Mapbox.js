@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import mapboxgl from 'mapbox-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
 
+import { GeneralContext } from '../contexts/GeneralContext'
 import { MapboxContext } from '../contexts/MapboxContext'
 // eslint-disable-next-line import/no-webpack-loader-syntax
 mapboxgl.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker').default;
@@ -10,6 +11,7 @@ const Mapbox = () => {
   // loading 開關
   const [loading, setLoading] = useState(true)
 
+  const { isMobile } = useContext(GeneralContext)
   const { list, map, setMap, onGenerateIcons } = useContext(MapboxContext)
 
   useEffect(() => {
@@ -39,7 +41,8 @@ const Mapbox = () => {
     onGenerateIcons(mapObj, list);
 
     //顯示右上角的+- zoomin zoomout功能
-    mapObj.addControl(new mapboxgl.NavigationControl());
+    // todo: isMobile 無法及時正確判斷
+    mapObj.addControl(new mapboxgl.NavigationControl(), isMobile ? 'bottom-right' : 'top-right');
     //顯示左下角的高空距離
     mapObj.addControl(new mapboxgl.ScaleControl({
       maxWidth: 70
@@ -48,6 +51,13 @@ const Mapbox = () => {
     mapObj.addControl(new mapboxgl.FullscreenControl({
       container: 'map'
     }));
+    //顯示使用者移動中位置
+    /* vm.map.addControl(new mapboxgl.GeolocateControl({
+      positionOptions: {
+        enableHighAccuracy: true
+      },
+      trackUserLocation: true
+    })); */
 
     mapObj.on('moveend', moveend);
 
