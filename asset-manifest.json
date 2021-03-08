@@ -1,25 +1,25 @@
 {
   "files": {
     "main.css": "/speed-measuring/static/css/main.1f108ee8.chunk.css",
-    "main.js": "/speed-measuring/static/js/main.dfbf14ee.chunk.js",
-    "main.js.map": "/speed-measuring/static/js/main.dfbf14ee.chunk.js.map",
+    "main.js": "/speed-measuring/static/js/main.3a500651.chunk.js",
+    "main.js.map": "/speed-measuring/static/js/main.3a500651.chunk.js.map",
     "runtime-main.js": "/speed-measuring/static/js/runtime-main.1d194cbf.js",
     "runtime-main.js.map": "/speed-measuring/static/js/runtime-main.1d194cbf.js.map",
     "static/css/2.bdb85385.chunk.css": "/speed-measuring/static/css/2.bdb85385.chunk.css",
-    "static/js/2.2675cf5c.chunk.js": "/speed-measuring/static/js/2.2675cf5c.chunk.js",
-    "static/js/2.2675cf5c.chunk.js.map": "/speed-measuring/static/js/2.2675cf5c.chunk.js.map",
+    "static/js/2.4723e043.chunk.js": "/speed-measuring/static/js/2.4723e043.chunk.js",
+    "static/js/2.4723e043.chunk.js.map": "/speed-measuring/static/js/2.4723e043.chunk.js.map",
     "index.html": "/speed-measuring/index.html",
     "static/css/2.bdb85385.chunk.css.map": "/speed-measuring/static/css/2.bdb85385.chunk.css.map",
     "static/css/main.1f108ee8.chunk.css.map": "/speed-measuring/static/css/main.1f108ee8.chunk.css.map",
-    "static/js/2.2675cf5c.chunk.js.LICENSE.txt": "/speed-measuring/static/js/2.2675cf5c.chunk.js.LICENSE.txt",
+    "static/js/2.4723e043.chunk.js.LICENSE.txt": "/speed-measuring/static/js/2.4723e043.chunk.js.LICENSE.txt",
     "static/js/mapbox-gl-csp-worker.6badf5c7.worker.js": "/speed-measuring/static/js/mapbox-gl-csp-worker.6badf5c7.worker.js",
     "static/js/mapbox-gl-csp-worker.6badf5c7.worker.js.map": "/speed-measuring/static/js/mapbox-gl-csp-worker.6badf5c7.worker.js.map"
   },
   "entrypoints": [
     "static/js/runtime-main.1d194cbf.js",
     "static/css/2.bdb85385.chunk.css",
-    "static/js/2.2675cf5c.chunk.js",
+    "static/js/2.4723e043.chunk.js",
     "static/css/main.1f108ee8.chunk.css",
-    "static/js/main.dfbf14ee.chunk.js"
+    "static/js/main.3a500651.chunk.js"
   ]
 }
