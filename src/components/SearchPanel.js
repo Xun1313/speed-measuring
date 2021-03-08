@@ -92,7 +92,7 @@ const SearchPanel = () => {
           // 條件篩選結果
           !collapse1
           && feature === 'filterAddressResult'
-          && <FilterAddressResult></FilterAddressResult>
+          && <FilterAddressResult setCollapse1={setCollapse1}></FilterAddressResult>
         }
 
         {

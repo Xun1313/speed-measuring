@@ -20,7 +20,7 @@ const MapboxProvider = props => {
   // 儲存畫面上當下所有popup object
   const [popupList, setPopupList] = useState([])
 
-  const { setFeature, setSearchStatus } = useContext(GeneralContext)
+  const { setFeature, setSearchStatus, setShowDarkBg } = useContext(GeneralContext)
 
   const onGetApi = () => {
     // 取得 api 資料
@@ -29,22 +29,31 @@ const MapboxProvider = props => {
 
   const onFilterAddress = (city = [], area = [], highway = true) => {
     // 篩選地址
+    setShowDarkBg(true)
     setSearchStatus('loading')
     onResetMarkerPopup()
+
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
 
     // 是否要搜尋國道
     //const searchHighway = highway ? `e.CityName.includes('國道')` : true
     const result = list.filter(e => e.CityName === city[0] && area.includes(e.RegionName)/*  && searchHighway */)
-    setUserList(result)
-
-    onGenerateIcons(map, result)
     
-    setFeature('filterAddressResult')
-    setSearchStatus('cross')
+    setTimeout(() => {
+      setUserList(result)
+      onGenerateIcons(map, result)
+      setFeature('filterAddressResult')
+      setShowDarkBg(false)
+      setSearchStatus('cross')
+    }, 2000);
     //result.length > 0 ? setFeature('filterAddressResult') : setFeature(null)
   }
 
   const onFlyto = (longitude, latitude) => {
+
     // 前往該地點
     map.flyTo({
       center: [longitude, latitude],

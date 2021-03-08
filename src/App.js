@@ -1,27 +1,36 @@
+import { useEffect, useContext } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import index from './pages/index'
 
-import './assets/scss/app.scss'
+import MobileDetect from 'mobile-detect';
 
-import GeneralProvider from './contexts/GeneralContext'
-import MapboxProvider from './contexts/MapboxContext'
-import RecordProvider from './contexts/RecordContext'
+import './assets/scss/app.scss'
+import NavbarHamburger from './components/NavbarHamburger'
+
+import { GeneralContext } from './contexts/GeneralContext'
 
 function App() {
+  const { showDarkBg, onToggleHamburger, isMobile, setUserAgent } = useContext(GeneralContext)
+
+  useEffect(() => {
+    const userAgent = window.navigator.userAgent
+    if (userAgent) {
+      let ua = new MobileDetect(userAgent);
+      setUserAgent(ua.mobile() ? true : false)
+    }
+
+  }, []);
+
   return (
     <Router basename={'/speed-measuring/'}>
-      <GeneralProvider>
-        <MapboxProvider>
-          <RecordProvider>
-            <div className="App">
-              <Switch>
-                <Route exact path="/" component={index} />
-              </Switch>
+      <div className={`App ${isMobile ? 'mobile' : ''}`}>
+        <Switch>
+          <Route exact path="/" component={index} />
+        </Switch>
 
-            </div>
-          </RecordProvider>
-        </MapboxProvider>
-      </GeneralProvider>
+        <NavbarHamburger></NavbarHamburger>
+        <div className={`${showDarkBg ? 'dark-bg' : ''}`} onClick={() => onToggleHamburger(false)}></div>
+      </div>
     </Router>
   );
 }

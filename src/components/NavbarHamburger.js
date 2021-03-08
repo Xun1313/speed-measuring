@@ -30,15 +30,10 @@ const NavbarHamburger = () => {
           </div>
         </div>
 
-        <div className="group">
+        {/* <div className="group">
           <div className="item">首頁</div>
           <div className="item">最新消息</div>
-        </div>
-
-        <div className="group">
-          <div className="item">首頁</div>
-          <div className="item">最新消息</div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

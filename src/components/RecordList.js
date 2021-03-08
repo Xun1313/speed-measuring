@@ -3,9 +3,11 @@ import { useEffect, useContext } from "react";
 import Clock from './svg/Clock'
 import Cross from './svg/Cross'
 
+import { GeneralContext } from '../contexts/GeneralContext'
 import { RecordContext } from '../contexts/RecordContext'
 
 const RecordList = () => {
+  const { isMobile } = useContext(GeneralContext)
   const { record, onGetRecord, onSetRecord, onRemoveRecord } = useContext(RecordContext)
 
   useEffect(() => {
@@ -31,7 +33,7 @@ const RecordList = () => {
       <div className="record-item" key={item} onClick={() => onSearch(item)}>
         <Clock width="15" height="15" color="gray" pointer={true}></Clock>
         <div className="margin-left-15 font-size-13" style={{marginRight: 'auto'}}>{item}</div>
-        <Cross width="0" height="0" color="gray" customClass="cross" pointer={true} event={{ onClick: e => onRemove(e, item)}}></Cross>
+        <Cross width={isMobile ? 8 : 0} height={isMobile ? 8 : 0} color="gray" customClass="cross" pointer={true} event={{ onClick: e => onRemove(e, item)}}></Cross>
       </div>));
 }
 

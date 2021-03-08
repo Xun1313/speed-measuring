@@ -2,10 +2,18 @@ import { useContext } from "react";
 
 import Go from './svg/Go'
 
+import { GeneralContext } from '../contexts/GeneralContext'
 import { MapboxContext } from '../contexts/MapboxContext'
 
-const FilterAddressResult = () => {
+const FilterAddressResult = ({setCollapse1}) => {
+  const { isMobile } = useContext(GeneralContext)
   const { userList, onFlyto } = useContext(MapboxContext)
+
+  const onMove = (Longitude, Latitude) => {
+    // 只有手機板要前往時折疊
+    setCollapse1(isMobile ? true : false)
+    onFlyto(Longitude, Latitude)
+  }
 
   return (
     <div className="filter-address-result box-bg">
@@ -23,7 +31,7 @@ const FilterAddressResult = () => {
                 <div className="font-size-13">{item.limit}</div>
               </div>
   
-              <div className="icon" onClick={() => onFlyto(item.Longitude, item.Latitude)}>
+              <div className="icon" onClick={() => onMove(item.Longitude, item.Latitude)}>
                 <Go width="35" height="35" customClass="svg" pointer={true}></Go>
                 <br/>
                 <div className="text-center">

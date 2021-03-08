@@ -3,7 +3,7 @@ import { useState, createContext } from "react";
 export const GeneralContext = createContext()
 
 const GeneralProvider = props => {
-  const [showDarkBg, setShowDarkBg] = useState(false)
+  const [showDarkBg, setShowDarkBg] = useState(true)
   const [showHamburgerBar, setShowHamburgerBar] = useState(false)
   const [feature, setFeature] = useState('filterAddress')
   const [searchStatus, setSearchStatus] = useState('camera')

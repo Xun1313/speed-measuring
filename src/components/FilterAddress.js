@@ -56,6 +56,9 @@ const FilterAddress = () => {
   // 按到的縣市和鄉鎮市區按鈕樣式
   const onBtnStyle = value => selectArea.includes(value)
 
+  // 驗證使用者是否填妥
+  const onValidateBtn = () => selectCity.length > 0 && selectArea.length > 0 ? false : true
+
   return (
     <Collapse Icon={Filter} title="條件篩選">
       <div className="filter">
@@ -105,7 +108,7 @@ const FilterAddress = () => {
 
         <div className="filter-btn">
           <button type="button" className="btn btn-bg-light-gray btn-full no-radius color-black" onClick={onRest}>重製</button>
-          <button type="button" className="btn btn-bg-blue btn-full no-radius" onClick={() => onFilterAddress(selectCity, selectArea, selectHighway)}>確認</button>
+          <button type="button" className="btn btn-bg-blue btn-full no-radius" disabled={onValidateBtn()} onClick={() => onFilterAddress(selectCity, selectArea, selectHighway)}>確認</button>
         </div>
       </div>
     </Collapse>

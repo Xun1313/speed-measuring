@@ -11,18 +11,18 @@ const Mapbox = () => {
   // loading 開關
   const [loading, setLoading] = useState(true)
 
-  const { isMobile } = useContext(GeneralContext)
-  const { list, map, setMap, onGenerateIcons } = useContext(MapboxContext)
+  const { setShowDarkBg, isMobile } = useContext(GeneralContext)
+  const { list, map, setMap, onGenerateIcons, onFilterAddress } = useContext(MapboxContext)
 
   useEffect(() => {
-    //onGetApi()
-
     navigator.geolocation.getCurrentPosition(position => {
       // 使用者同意
       onInitMap(position.coords.longitude, position.coords.latitude);
+      setShowDarkBg(false)
     }, err => {
       // 使用者按封鎖
       onInitMap(120.3232675, 22.6294885);
+      setShowDarkBg(false)
     });
   }, []);
 
@@ -34,11 +34,12 @@ const Mapbox = () => {
       center: [lng, lat],
       minZoom: 6,
       maxZoom: 18,
-      zoom: 5,
+      zoom: 12,
     });
     setMap(mapObj)
 
-    onGenerateIcons(mapObj, list);
+    //onGenerateIcons(mapObj, list);
+    //onFilterAddress()
 
     //顯示右上角的+- zoomin zoomout功能
     // todo: isMobile 無法及時正確判斷

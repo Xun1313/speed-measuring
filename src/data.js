@@ -6701,7 +6701,7 @@ export default {
         direct: "北向南",
         limit: "50",
       },
-      /*{
+      {
         CityName: "基隆市",
         RegionName: "七堵區",
         Address: "明德二路(台五線20K+422)南向",
@@ -21220,7 +21220,7 @@ export default {
         Latitude: "25.15298",
         direct: "往北",
         limit: "50",
-      }, */
+      }
     ],
   },
 };
