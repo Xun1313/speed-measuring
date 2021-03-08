@@ -6,9 +6,9 @@ import Cross from './svg/Cross'
 import { GeneralContext } from '../contexts/GeneralContext'
 import { RecordContext } from '../contexts/RecordContext'
 
-const RecordList = () => {
+const RecordList = ({onSearch}) => {
   const { isMobile } = useContext(GeneralContext)
-  const { record, onGetRecord, onSetRecord, onRemoveRecord } = useContext(RecordContext)
+  const { record, onGetRecord, onRemoveRecord } = useContext(RecordContext)
 
   useEffect(() => {
     // 抓出歷史紀錄
@@ -20,11 +20,6 @@ const RecordList = () => {
     e.stopPropagation()
 
     onRemoveRecord(value)
-  }
-
-  const onSearch = value => {
-    // 搜尋過去的搜尋紀錄
-    if (value) onSetRecord(value)
   }
   
   return (record.length === 0

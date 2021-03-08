@@ -19,11 +19,12 @@ import RecordList from './RecordList'
 const SearchPanel = () => {
   const [collapse1, setCollapse1] = useState(false)
   const [collapse2, setCollapse2] = useState(false)
+  // input 搜尋
   const [keyword, setKeyword] = useState('')
   
   const { onToggleHamburger, feature, setFeature, searchStatus, setSearchStatus, isMobile } = useContext(GeneralContext)
   
-  const { userList } = useContext(MapboxContext)
+  const { userList, onFilterKeyword } = useContext(MapboxContext)
 
   const { onSetRecord } = useContext(RecordContext)
 
@@ -34,7 +35,9 @@ const SearchPanel = () => {
 
   const onSearch = value => {
     // 搜尋過去的搜尋紀錄
-    if (value) onSetRecord(value)
+    if (!value) return
+    onSetRecord(value)
+    onFilterKeyword(value)
   }
 
   const onBack = () => {
@@ -55,7 +58,7 @@ const SearchPanel = () => {
                 ? <Direction width="20" height="20" color="gray" pointer={true} event={{onClick: () => setCollapse1(true)}}></Direction>
                 : <HamburgerMenu width="15" height="15" color="gray" pointer={true} event={{onClick: () => onToggleHamburger(true)}}></HamburgerMenu>
               }
-              <input type="text" className="font-size-14 margin-left-10 margin-right-10" placeholder="搜尋測速相機地址" onKeyUp={e => e.keyCode === 13 ? onSearch(e.target.value) : ''} onChange={e => setKeyword(e.target.value)} onFocus={() => isMobile ? setCollapse1(false) : ''} style={{width: '85%'}}/>
+              <input type="text" className="font-size-14 margin-left-10 margin-right-10" placeholder="搜尋縣市或鄉鎮市區" onKeyUp={e => e.keyCode === 13 ? onSearch(e.target.value) : ''} onChange={e => setKeyword(e.target.value)} onFocus={() => isMobile ? setCollapse1(false) : ''} style={{width: '85%'}}/>
 
               <Magnifier width="15" height="15" color="gray" pointer={true} event={{onClick: () => onSearch(keyword)}}></Magnifier>
               <div className="margin-left-8 margin-right-8" style={{borderLeft: '1px solid rgba(0,0,0,0.2)', borderTop: '20px solid rgba(0,0,0,0.2)'}}></div>
@@ -70,7 +73,7 @@ const SearchPanel = () => {
               // 顯示搜尋紀錄
               !collapse1
               && feature === 'filterAddress'
-              && <RecordList></RecordList>
+              && <RecordList onSearch={onSearch}></RecordList>
             }
 
             {

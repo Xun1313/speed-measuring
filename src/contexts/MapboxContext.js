@@ -29,6 +29,8 @@ const MapboxProvider = props => {
 
   const onFilterAddress = (city = [], area = [], highway = true) => {
     // 篩選地址
+    if (!value) return
+
     setShowDarkBg(true)
     setSearchStatus('loading')
     onResetMarkerPopup()
@@ -43,17 +45,39 @@ const MapboxProvider = props => {
     const result = list.filter(e => e.CityName === city[0] && area.includes(e.RegionName)/*  && searchHighway */)
     
     setTimeout(() => {
-      setUserList(result)
       onGenerateIcons(map, result)
+      setUserList(result)
       setFeature('filterAddressResult')
       setShowDarkBg(false)
       setSearchStatus('cross')
-    }, 2000);
+    }, 1500);
     //result.length > 0 ? setFeature('filterAddressResult') : setFeature(null)
   }
 
-  const onFlyto = (longitude, latitude) => {
+  const onFilterKeyword = value => {
+    // 搜尋關鍵字可能是縣市或鄉鎮市區
+    if (!value) return
 
+    setShowDarkBg(true)
+    setSearchStatus('loading')
+    onResetMarkerPopup()
+
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+
+    const result = list.filter(e => e.CityName.includes(value) || e.RegionName.includes(value))
+    setTimeout(() => {
+      onGenerateIcons(map, result)
+      setUserList(result)
+      setFeature('filterAddressResult')
+      setShowDarkBg(false)
+      setSearchStatus('cross')
+    }, 1500);
+  }
+
+  const onFlyto = (longitude, latitude) => {
     // 前往該地點
     map.flyTo({
       center: [longitude, latitude],
@@ -143,7 +167,8 @@ const MapboxProvider = props => {
     onGetApi,
     onFilterAddress,
     onGenerateIcons,
-    onFlyto
+    onFlyto,
+    onFilterKeyword
   }
 
   return (
