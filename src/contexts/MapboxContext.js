@@ -50,6 +50,10 @@ const MapboxProvider = props => {
       setFeature('filterAddressResult')
       setShowDarkBg(false)
       setSearchStatus('cross')
+      map.flyTo({
+        center: [120.88595149248539, 23.619024243300956],
+        zoom: 7
+      })
     }, 1500);
     //result.length > 0 ? setFeature('filterAddressResult') : setFeature(null)
   }
@@ -74,6 +78,10 @@ const MapboxProvider = props => {
       setFeature('filterAddressResult')
       setShowDarkBg(false)
       setSearchStatus('cross')
+      map.flyTo({
+        center: [120.88595149248539, 23.619024243300956],
+        zoom: 7
+      })
     }, 1500);
   }
 

@@ -12,7 +12,7 @@ const Mapbox = () => {
   const [loading, setLoading] = useState(true)
 
   const { setShowDarkBg, isMobile } = useContext(GeneralContext)
-  const { list, map, setMap, onGenerateIcons, onFilterAddress } = useContext(MapboxContext)
+  const { setMap, onGenerateIcons, onFilterAddress } = useContext(MapboxContext)
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(position => {
@@ -53,12 +53,12 @@ const Mapbox = () => {
       container: 'map'
     }));
     //顯示使用者移動中位置
-    /* vm.map.addControl(new mapboxgl.GeolocateControl({
+    mapObj.addControl(new mapboxgl.GeolocateControl({
       positionOptions: {
         enableHighAccuracy: true
       },
       trackUserLocation: true
-    })); */
+    }));
 
     mapObj.on('moveend', moveend);
 
