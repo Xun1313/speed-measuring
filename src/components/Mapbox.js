@@ -43,7 +43,7 @@ const Mapbox = () => {
 
     //顯示右上角的+- zoomin zoomout功能
     // todo: isMobile 無法及時正確判斷
-    mapObj.addControl(new mapboxgl.NavigationControl(), isMobile ? 'bottom-right' : 'top-right');
+    mapObj.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
     //顯示左下角的高空距離
     mapObj.addControl(new mapboxgl.ScaleControl({
       maxWidth: 70
@@ -51,14 +51,14 @@ const Mapbox = () => {
     //顯示右上角的全螢幕觀看
     mapObj.addControl(new mapboxgl.FullscreenControl({
       container: 'map'
-    }));
+    }), 'bottom-right');
     //顯示使用者移動中位置
     mapObj.addControl(new mapboxgl.GeolocateControl({
       positionOptions: {
         enableHighAccuracy: true
       },
       trackUserLocation: true
-    }));
+    }), 'bottom-right');
 
     mapObj.on('moveend', moveend);
 

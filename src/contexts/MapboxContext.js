@@ -132,12 +132,13 @@ const MapboxProvider = props => {
       // add marker to map
       popup.setHTML(`
       <div class="popup-content">
-        <div class="name">設置縣市: ${e.CityName}</div>
-        <div class="cat">設置市區鄉鎮: ${e.RegionName}</div>
-        <div class="cat">設置地址: ${e.Address}</div>
-        <div class="cat">管轄警局: ${e.DeptNm}</div>
-        <div class="cat">管轄分局: ${e.BranchNm}</div>
-        <div class="cat">拍攝方向: ${e.direct}</div>
+        <b class="color-light-black margin-bottom-5 font-size-20">速限: <span class="color-red">${e.limit}</span></b>
+        <div class="color-light-black margin-bottom-5 font-size-14">設置縣市: ${e.CityName}</div>
+        <div class="color-light-black margin-bottom-5 font-size-14">設置市區鄉鎮: ${e.RegionName}</div>
+        <div class="color-light-black margin-bottom-5 font-size-14">設置地址: ${e.Address}</div>
+        <div class="color-light-black margin-bottom-5 font-size-14">管轄警局: ${e.DeptNm}</div>
+        <div class="color-light-black margin-bottom-5 font-size-14">管轄分局: ${e.BranchNm}</div>
+        <div class="color-light-black font-size-14">拍攝方向: ${e.direct}</div>
       </div>`);
       setPopupList(prev => [...prev, popup])
 
